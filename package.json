@@ -1,0 +1,23 @@
+{
+  "name": "root",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "npm --prefix ./packages run tsc",
+    "g_remove": "rimraf ./packages/dist",
+    "tsc": "tsc",
+    "ts-node": "ts-node --esm ./package/src/index.ts",
+    "js": "node ./package/dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.8.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.3",
+    "rimraf": "^4.4.1",
+    "typescript": "^4.9.5"
+  }
+}

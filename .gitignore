@@ -1,0 +1,10 @@
+# node_modules
+node_modules/
+
+# dist
+packages/generate-json/dist
+packages/search-address/dist
+
+# json file
+packages/json/zip/*.json
+
