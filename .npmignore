@@ -1,0 +1,9 @@
+# node_modules
+node_modules/
+# ts file
+src/
+tsconfig.json
+
+# config
+.prettierrc.cjs
+.eslintrc.js
