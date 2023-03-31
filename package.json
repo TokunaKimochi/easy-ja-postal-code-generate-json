@@ -1,6 +1,6 @@
 {
   "name": "easy-ja-postal-code-generate-json",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "日本全国版の郵便番号データのcsvをjsonに変換するライブラリ",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
