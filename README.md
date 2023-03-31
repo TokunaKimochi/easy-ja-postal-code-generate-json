@@ -1,14 +1,21 @@
 # easy-ja-postal-code-generate-json [![npm version](https://img.shields.io/npm/v/easy-ja-postal-code-generate-json.svg?style=flat)](https://www.npmjs.com/package/easy-ja-postal-code-generate-json)
 
-# Data
-
-日本郵便の全国一括版住所の csv データを使用して加工します。<br>
-<a href="https://www.post.japanpost.jp/zipcode/dl/oogaki-zip.html" target="_blank">https://www.post.japanpost.jp/zipcode/dl/oogaki-zip.html</a>
-
 # Features
 
 - 郵便局のサイトから最新の郵便番号データをダウンロード＆json に変換
 - ファイルが 10MB 以上と重い為、郵便番号の上３桁ごとに json ファイルを分割しています。
+- 外部データではなく、自サーバーで住所データが管理できます。
+
+# Recommendation
+
+**easy-ja-postal-code-search-address**<br>
+こちらのパッケージと合わせて使う事をオススメします<br>
+https://www.npmjs.com/package/easy-ja-postal-code-search-address
+
+# Data
+
+日本郵便の全国一括版住所の csv データを使用して加工します。<br>
+<a href="https://www.post.japanpost.jp/zipcode/dl/oogaki-zip.html" target="_blank">https://www.post.japanpost.jp/zipcode/dl/oogaki-zip.html</a>
 
 # Requirement
 
@@ -27,10 +34,8 @@ npx ejpc-generate-json -d "assets/json/zip" -t
 ├── 001.json
 ├── 002.json
 ├── 003.json
-├── 004.json
 〜
 〜
-├── 997.json
 ├── 998.json
 ├── 999.json
 ├── _time.json
