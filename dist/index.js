@@ -1,17 +1,21 @@
 #!/usr/bin/env node
-import fs from 'fs/promises';
-import path from 'path';
-import { parse } from 'csv/sync';
-import iconv from 'iconv-lite';
-import AdmZip from 'adm-zip';
-import { Command } from 'commander';
-const program = new Command();
-const __dirname = process.cwd();
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const promises_1 = __importDefault(require("fs/promises"));
+const path_1 = __importDefault(require("path"));
+const sync_1 = require("csv/sync");
+const iconv_lite_1 = __importDefault(require("iconv-lite"));
+const adm_zip_1 = __importDefault(require("adm-zip"));
+const commander_1 = require("commander");
+const program = new commander_1.Command();
 const checkNoData = (row) => {
     return row === '以下に掲載がない場合' ? '' : row;
 };
 const generateFile = (path, key, data) => {
-    fs.writeFile(path, data)
+    promises_1.default.writeFile(path, data)
         .then(() => console.log(`${key}: json generated!`))
         .catch((err) => console.error(err));
 };
@@ -33,13 +37,13 @@ const formatTime = (date) => {
         .parse();
     const options = program.opts();
     const zipUrl = options.zipUrl;
-    const destDir = path.resolve(__dirname, options.destDir);
+    const destDir = path_1.default.resolve(__dirname, options.destDir);
     const time = options.time;
     const jsonDetailFilePath = (index) => `${destDir}/${index}.json`;
     const zipIndex = [];
     const zipAllData = {};
     // ディレクトリが無い場合は作成
-    const mkdirResult = await fs
+    const mkdirResult = await promises_1.default
         .mkdir(destDir, { recursive: true })
         .then((result) => {
         if (result)
@@ -57,14 +61,14 @@ const formatTime = (date) => {
     if (!resultBuffer)
         return;
     // zipファイルからbufferデータを取得
-    const zip = new AdmZip(resultBuffer);
+    const zip = new adm_zip_1.default(resultBuffer);
     const zipData = zip.getEntries()[0].getData();
     // Bufferからcsv & shift-jisをutf-8に変換
-    const utf8Csv = iconv.decode(zipData, 'Shift_JIS');
+    const utf8Csv = iconv_lite_1.default.decode(zipData, 'Shift_JIS');
     if (!utf8Csv)
         return;
     // csvからjsonを作成
-    const parseJson = parse(utf8Csv);
+    const parseJson = (0, sync_1.parse)(utf8Csv);
     // 必要なデータで作り直す
     parseJson.forEach((row) => {
         const zipHead = row[2].slice(0, 3);

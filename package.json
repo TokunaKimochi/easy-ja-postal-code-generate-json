@@ -4,7 +4,6 @@
   "description": "日本全国版の郵便番号データのcsvをjsonに変換するライブラリ",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "type": "module",
   "scripts": {
     "build": "run-s remove tsc",
     "tsc": "tsc",

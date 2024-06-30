@@ -11,7 +11,6 @@ import { Command } from 'commander'
 import { ZipIndex, ZipData } from './type'
 
 const program = new Command()
-const __dirname = process.cwd()
 
 const checkNoData = (row: string): string => {
   return row === '以下に掲載がない場合' ? '' : row

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2022",
-    "module": "es2022",
+    "module": "CommonJS",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -14,5 +14,5 @@
   "resolve": {
     "extensions": [".ts", ".js"]
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "./dist"]
 }
